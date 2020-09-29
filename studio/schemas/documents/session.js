@@ -44,7 +44,7 @@ export default {
       }
     },
     {
-      name: 'talkingPoint',
+      name: 'talkingPoints',
       type: 'array',
       description: 'The key talking points of this event',
       of: [{type: 'talkingPoint'}]

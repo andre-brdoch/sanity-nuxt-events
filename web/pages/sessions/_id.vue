@@ -5,6 +5,19 @@
       <p class="sessionType">{{ sessionType }}</p>
       <h1 class="sessionTitle">{{ title }}</h1>
       <p class="summary">{{ summary }}</p>
+      <div v-if="talkingPoints" style="margin: 60px 0;">
+        <h2>Talking Points:</h2>
+        <ul class="talking-points">
+          <li
+            v-for="point in talkingPoints"
+            :key="point.title"
+            class="talking-point"
+          >
+            <h3>{{ point.title }}</h3>
+            <p>{{ point.description }}</p>
+          </li>
+        </ul>
+      </div>
       <div class="sessionContent">
         <BlockContent
           :blocks="description"
@@ -54,7 +67,7 @@ export default {
   },
   async asyncData({ params }) {
     const content = await sanityClient.fetch(query, params)
-    console.log(content)
+    console.log(content.talkingPoints)
     return content
   }
 }
@@ -114,6 +127,19 @@ export default {
   @nest & p {
     margin: 1rem 0;
   }
+}
+
+.talking-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.talking-point {
+  padding: 0 15px;
+  background: white;
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
+  margin-bottom: 15px;
 }
 
 img {
