@@ -44,6 +44,12 @@ export default {
       }
     },
     {
+      name: 'talkingPoint',
+      type: 'array',
+      description: 'The key talking points of this event',
+      of: [{type: 'talkingPoint'}]
+    },
+    {
       name: 'summary',
       type: 'text',
       title: 'Short summary',

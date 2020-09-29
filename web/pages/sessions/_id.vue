@@ -53,7 +53,9 @@ export default {
     }
   },
   async asyncData({ params }) {
-    return await sanityClient.fetch(query, params)
+    const content = await sanityClient.fetch(query, params)
+    console.log(content)
+    return content
   }
 }
 </script>
